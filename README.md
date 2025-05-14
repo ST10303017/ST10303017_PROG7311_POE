@@ -107,4 +107,11 @@ The application includes pre-seeded user accounts for demonstration and testing:
 
 **References:**
 - Troelsen, A., & Japikse, P. (2022). Pro C# 10 with .NET 6: Foundational Principles and Practices in Programming. New York: Apress Media LLC.
-- 
+- OpenAI. (2024, March 21). ChatGPT. Retrieved from ChatGPT: https://chat.openai.com/
+- Disclosure of Al Usage in my Assignment
+• Section(s) within the assignment in which generative Al was used, e.g.
+Question: Readme,
+• Tool used is ChatGPT
+• Purpose was for brainstorming and structuring only
+• Used on 11 May 2024
+• https://chat.openai.com/
