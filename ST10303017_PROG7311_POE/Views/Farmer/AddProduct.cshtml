@@ -1,0 +1,48 @@
+﻿@* File: Views/Farmer/AddProduct.cshtml *@
+@model ST10303017_PROG7311_POE.Models.ViewModels.AddProductViewModel 
+
+@{
+    ViewData["Title"] = "Add New Product";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+        <div class="modern-card">
+            <div class="modern-card-header text-center">
+                 <h2 class="modern-card-title"><i class="bi bi-plus-square-dotted me-2 text-primary-accent"></i>@ViewData["Title"]</h2>
+                <p class="modern-card-subtitle">Enter the details for your new agricultural product.</p>
+            </div>
+
+            <form asp-action="AddProduct" method="post"> @* method="post" is important *@
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3" role="alert"></div>
+                
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="e.g., Organic Carrots" />
+                    <span asp-validation-for="Name" class="text-danger d-block mt-1 small"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Category" class="form-label"></label>
+                    <input asp-for="Category" class="form-control" placeholder="e.g., Vegetables, Fruits, Dairy" />
+                    <span asp-validation-for="Category" class="text-danger d-block mt-1 small"></span>
+                </div>
+                
+                <div class="mb-4">
+                    <label asp-for="ProductionDate" class="form-label"></label>
+                    <input asp-for="ProductionDate" type="date" class="form-control" /> @* type="date" is good *@
+                    <span asp-validation-for="ProductionDate" class="text-danger d-block mt-1 small"></span>
+                </div>
+
+                <div class="modern-card-actions mt-4">
+                    <a asp-action="MyProducts" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary-accent"><i class="bi bi-check-lg me-2"></i>Create Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} @* Ensures client-side validation scripts are loaded *@
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ST10303017_PROG7311_POE.Models.Product>
+
+@{
+    ViewData["Title"] = "View Farmer Products";
+}
+
+<div class="page-header">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+<div class="filter-bar">
+    <form asp-controller="Employee" asp-action="ViewFarmerProducts" method="get">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label for="farmerId" class="form-label">Select Farmer:</label>
+                <select name="farmerId" asp-items="ViewBag.Farmers" class="form-select">
+                    <option value="">-- Select a Farmer --</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="productType" class="form-label">Product Type:</label>
+                <select name="productType" asp-items="ViewBag.ProductTypes" class="form-select">
+                    <option value="">-- All Types --</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="startDate" class="form-label">From Date:</label>
+                <input type="date" name="startDate" value="@ViewBag.StartDate" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <label for="endDate" class="form-label">To Date:</label>
+                <input type="date" name="endDate" value="@ViewBag.EndDate" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <label class="form-label d-block"> </label>
+                <button type="submit" class="btn btn-primary-accent"><i class="bi bi-funnel-fill me-1"></i>Filter</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@if (string.IsNullOrEmpty(ViewBag.SelectedFarmerId as string))
+{
+    <div class="modern-card text-center py-5">
+        <i class="bi bi-person-check-fill display-1 text-primary-accent mb-3"></i>
+        <h3 class="text-muted">Select a Farmer</h3>
+        <p class="text-muted">Please choose a farmer from the filter above to view their products.</p>
+    </div>
+}
+else if (!Model.Any())
+{
+    <div class="modern-card text-center py-5">
+        <i class="bi bi-emoji-frown display-1 text-secondary-accent mb-3"></i>
+        <h3 class="text-muted">No Products Found</h3>
+        <p class="text-muted">No products match the selected farmer and filter criteria.</p>
+    </div>
+}
+else
+{
+    <div class="product-list mt-4">
+        @foreach (var item in Model)
+        {
+            <div class="list-item-card">
+                <div class="item-details">
+                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                    <span><i class="bi bi-person-fill me-1 text-muted"></i> Farmer: @Html.DisplayFor(modelItem => item.Farmer.Email)</span>
+                    <span class="ms-md-3"><i class="bi bi-tag-fill me-1 text-muted"></i> Category: @Html.DisplayFor(modelItem => item.Category)</span>
+                    <span class="ms-md-3"><i class="bi bi-calendar-event-fill me-1 text-muted"></i> Production: @item.ProductionDate.ToString("dd/MM/yyyy")</span>
+                </div>
+            </div>
+        }
+    </div>
+}

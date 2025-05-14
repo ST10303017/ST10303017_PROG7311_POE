@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Welcome to Agri-Energy Connect";
+}
+
+<div class="homepage-hero">
+    <div class="hero-content-block">
+        <h1>Empowering Sustainable Futures</h1>
+        <p class="lead">
+            Agri-Energy Connect is your platform to bridge innovative green energy solutions with the agricultural sector.
+            Join us to cultivate a sustainable tomorrow.
+        </p>
+        <div class="hero-actions">
+            <div class="row g-3 justify-content-center">
+                <div class="col-sm-auto">
+                    <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("MyProducts", "Farmer")" class="btn btn-lg btn-primary-accent d-block">
+                        <i class="bi bi-tractor me-2"></i>Farmer Login
+                    </a>
+                </div>
+                <div class="col-sm-auto">
+                    <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("ListFarmers", "Employee")" class="btn btn-lg btn-outline-secondary-accent d-block">
+                        <i class="bi bi-briefcase-fill me-2"></i>Employee Login
+                    </a>
+                </div>
+            </div>
+            <p class="mt-4 mb-0">
+                New Employee? <a asp-area="Identity" asp-page="/Account/Register" class="fw-bold">Register Here</a>
+                <br />
+            </p>
+        </div>
+    </div>
+</div>
