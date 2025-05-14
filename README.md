@@ -5,7 +5,7 @@ This MVC application serves as a functional prototype for the Agri-Energy Connec
 
 **Project Namespace:** `ST10303017_PROG7311_POE`
 
-**GitHub Repository Link:**
+**GitHub Repository Link:** `https://github.com/ST10303017/ST10303017_PROG7311_POE.git`
 
 
 ## Implemented Key Features
