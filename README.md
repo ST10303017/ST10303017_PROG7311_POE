@@ -1,4 +1,4 @@
-# AgriEnergyConnect - Prototype (Portfolio of Evidence Part 2)
+# Agri-Energy Connect
 
 ## Project Overview
 This MVC application serves as a functional prototype for the Agri-Energy Connect platform, developed in fulfillment of the requirements for Part 2 of the Programming 7311 Portfolio of Evidence. The prototype demonstrates a user management system employing distinct roles (Farmer and Employee) and showcases core functionalities pertaining to product management by farmers, alongside farmer and product administration by employees. The system utilizes ASP.NET Core Identity for robust authentication and authorization.
