@@ -1,108 +1,92 @@
-# Agri-Energy Connect
+# Agri-Energy Connect - Part 2 Prototype
 
 ## Project Overview
-This MVC application serves as a functional prototype for the Agri-Energy Connect platform, developed in fulfillment of the requirements for Part 2 of the Programming 7311 Portfolio of Evidence. The prototype demonstrates a user management system employing distinct roles (Farmer and Employee) and showcases core functionalities pertaining to product management by farmers, alongside farmer and product administration by employees. The system utilizes ASP.NET Core Identity for robust authentication and authorization.
+This ASP.NET Core 8 MVC application is a prototype for the Agri-Energy Connect platform, fulfilling Part 2 of the POE. It features a user management system with distinct "Farmer" and "Employee" roles, product management for farmers, and administrative functions for employees, all secured with ASP.NET Core Identity.
 
 **Project Namespace:** `ST10303017_PROG7311_POE`
-
 **GitHub Repository Link:** `https://github.com/ST10303017/ST10303017_PROG7311_POE.git`
 
+## Core Implemented Features
+*   **User Roles & Secure Authentication (ASP.NET Core Identity):**
+    *   Distinct "Farmer" and "Employee" roles.
+    *   Secure login required for access to application features.
+*   **Employee Functionality:**
+    *   Self-registration (users automatically become "Employees").
+    *   Add new Farmer user profiles.
+    *   View products from any Farmer, with filtering by date range and product type.
+*   **Farmer Functionality:**
+    *   Accounts created by Employees.
+    *   Add new products (name, category, production date).
+    *   View their own product list.
+*   **Database (SQLite & EF Core):**
+    *   Uses SQLite, managed via Entity Framework Core (Code-First).
+    *   Database file (`AgriEnergyConnect.db`) included in `/LocalDatabase` (copied to output on build).
+    *   Initial seeding:
+        *   "Employee" and "Farmer" roles.
+        *   5 sample Employee accounts.
+        *   5 sample Farmer accounts.
+        *   5 sample products for each sample Farmer.
+*   **UI:** Styled with Bootstrap 5 and custom CSS for a modern, responsive design.
 
-## Implemented Key Features
-
-*   **User Role Management & Secure Authentication:**
-    *   Implementation of distinct "Farmer" and "Employee" user roles, managed via ASP.NET Core Identity.
-    *   Secure login functionality is enforced for both roles; application data and features are accessible only to authenticated users based on their assigned roles.
-*   **Employee-Specific Functionalities:**
-    *   Self-registration capability for Employees; newly registered users are automatically assigned the "Employee" role.
-    *   Authenticated Employees possess the ability to create and add new Farmer user profiles to the system.
-    *   Employees can view a comprehensive list of products associated with any specific Farmer.
-    *   Product listings are equipped with filtering capabilities based on date range and product type.
-*   **Farmer-Specific Functionalities:**
-    *   Farmer accounts are created by authorized Employees. Once logged in, Farmers can:
-        *   Add new products (specifying name, category, and production date) to their individual profiles.
-        *   View a consolidated list of their own product offerings. Production dates are consistently displayed in `dd/MM/yyyy` format.
-*   **Database and Data Seeding:**
-    *   The application utilizes **SQLite** as its database, managed through Entity Framework Core (employing a Code-First approach).
-    *   The SQLite database file (`AgriEnergyConnect.db`) is included within the `LocalDatabase` directory of the project source and is configured to be copied to the build output directory.
-    *   An initial data seeding process on application startup (after database schema creation) populates the database with:
-        *   The "Employee" and "Farmer" roles.
-        *   Five sample Employee accounts.
-        *   Five sample Farmer accounts.
-        *   Five distinct sample products for each of the five sample Farmers (totaling 25 pre-seeded products).
-*   **User Interface and Design:**
-    *   The user interface is styled using Bootstrap 5, augmented with custom CSS to achieve a modern, clean, and responsive user experience.
-
-## Core Technologies Utilized
+## Technologies
 *   ASP.NET Core MVC (.NET 8.0), C#
 *   Entity Framework Core 8
 *   ASP.NET Core Identity
 *   SQLite
 *   Bootstrap 5, HTML, CSS
 
-## System Prerequisites
+## Prerequisites
 *   .NET SDK 8.0
-*   Visual Studio 2022 (with the "ASP.NET and web development" workload installed).
+*   Visual Studio 2022 (with "ASP.NET and web development" workload)
 
-## Setup and Execution Instructions
+## Setup and Execution
 
-1.  **Open the Solution:** Launch Visual Studio 2022 and open the `ST10303017_PROG7311_POE.sln` file located in the project's root directory.
-2.  **Verify Connection String:**
-    *   The application is pre-configured to use an included SQLite database file. The connection string in `appsettings.json` is:
-        ```json
-        "ConnectionStrings": {
-          "DefaultConnection": "Data Source=LocalDatabase\\AgriEnergyConnect.db"
-        }
-        ```
-3.  **Apply Database Migrations:**
-    *   Open the **Package Manager Console** within Visual Studio (View > Other Windows > Package Manager Console).
-    *   Ensure that `ST10303017_PROG7311_POE` is selected as the "Default project" in the Package Manager Console dropdown.
-    *   Execute the following command to create the database schema from migrations:
+1.  **Open Solution:** Open `ST10303017_PROG7311_POE.sln` in Visual Studio 2022.
+2.  **Connection String:** Verified in `appsettings.json` for the included SQLite DB:
+    `"DefaultConnection": "Data Source=LocalDatabase\\AgriEnergyConnect.db"`
+3.  **Apply Migrations:**
+    *   In Package Manager Console (Default project: `ST10303017_PROG7311_POE`):
         ```powershell
         Update-Database
         ```
-    *   This command will create the `AgriEnergyConnect.db` file in the appropriate output directory
-4.  **Run the Application:**
-    *   Press **Debug > Start Debugging** from the Visual Studio menu to build and run the application.
-    *   The application will launch in your default web browser. The data seeding process (roles, users, products) will occur automatically.
+    *   This creates/updates the `AgriEnergyConnect.db` schema in the output directory.
+4.  **Run Application:**
+    *   Press F5 or Debug > Start Debugging.
+    *   Data seeding occurs on first run after database setup.
 
-## Initial User Accounts & Application Usage
-
-The application includes pre-seeded user accounts for demonstration and testing:
+## Initial User Accounts & Usage
 
 **Employee Accounts:**
-*   A total of five Employee accounts are seeded. The primary one for initial access is:
-    *   **Email/Username:** `employee1@agrienergy.com`
-    *   **Password:** `Password123!`
-*   **Registration:** Additional Employees can register via the "Register Here" link on the homepage. They will automatically be assigned the "Employee" role.
-*   **Primary Tasks:** Log in to add Farmer accounts, view all products, and filter product listings.
+*   5 seeded. Primary: `employee1@agrienergy.com` (Password: `Password123!`)
+*   New employees can register via the homepage link.
+*   **Tasks:** Add Farmers, view/filter all products.
 
 **Farmer Accounts (Pre-Seeded):**
-*   Five Farmer accounts are pre-seeded with login credentials. Each farmer also has 5 sample products.
-    1.  **Email/Username:** `farmer.john.doe@example.com`
-        **Password:** `FarmerPass1!`
-    2.  **Email/Username:** `farmer.jane.smith@example.com`
-        **Password:** `FarmerPass2!`
-    3.  **Email/Username:** `farmer.peter.fields@example.com`
-        **Password:** `FarmerPass3!`
-    4.  **Email/Username:** `farmer.susan.grower@example.com`
-        **Password:** `FarmerPass4!`
-    5.  **Email/Username:** `farmer.mike.valley@example.com`
-        **Password:** `FarmerPass5!`
-*   **Primary Tasks:** Log in to add new products to their profile or view their existing product list.
+*   5 seeded, each with 5 sample products.
+    1.  `farmer.john.doe@example.com` (Password: `FarmerPass1!`)
+    2.  `farmer.jane.smith@example.com` (Password: `FarmerPass2!`)
+    3.  `farmer.peter.fields@example.com` (Password: `FarmerPass3!`)
+    4.  `farmer.susan.grower@example.com` (Password: `FarmerPass4!`)
+    5.  `farmer.mike.valley@example.com` (Password: `FarmerPass5!`)
+*   **Tasks:** Add/view their own products.
 
-
-## Project Structure Overview
-*   **`/Controllers`**: Contains the MVC controllers responsible for handling application logic.
-*   **`/Data`**: Includes `ApplicationDbContext.cs` for Entity Framework Core and `SeedData.cs` for initial database population.
-*   **`/Migrations`**: Stores Entity Framework Core database migration files specific to SQLite.
-*   **`/Models`**: Defines C# entity classes (e.g., `ApplicationUser.cs`, `Product.cs`) and ViewModels.
-*   **`/Views`**: Contains Razor (.cshtml) files for rendering the user interface.
-    *   **`/Views/Shared`**: Houses shared layout components like `_Layout.cshtml`.
-*   **`/Areas/Identity/Pages`**: Contains the scaffolded Razor Pages for ASP.NET Core Identity functionalities.
-*   **`/wwwroot`**: Stores static client-side assets (CSS, JavaScript, images).
-*   **`/LocalDatabase`**: Contains the `AgriEnergyConnect.db` SQLite database file, configured to be copied to the output directory.
-*   **`appsettings.json`**: Central configuration file, including the database connection string.
-*   **`Program.cs`**: The main application entry point, configuring services and the HTTP request pipeline.
+## Key Project Folders
+*   **`/Controllers`**: MVC controllers.
+*   **`/Data`**: `ApplicationDbContext.cs`, `SeedData.cs`.
+*   **`/Models`**: Entities & ViewModels.
+*   **`/Views`**: Razor UI files.
+*   **`/Areas/Identity`**: Identity UI pages.
+*   **`/wwwroot`**: Static assets (CSS, images).
+*   **`/LocalDatabase`**: Contains `AgriEnergyConnect.db`.
+*   **`Program.cs` / `appsettings.json`**: Core configuration.
 
 **References:**
+- Troelsen, A., & Japikse, P. (2022). Pro C# 10 with .NET 6: Foundational Principles and Practices in Programming. New York: Apress Media LLC.
+- OpenAI. (2024, March 21). ChatGPT. Retrieved from ChatGPT: https://chat.openai.com/
+- Disclosure of Al Usage in my Assignment
+• Section(s) within the assignment in which generative Al was used, e.g.
+Question: Readme,
+• Tool used is ChatGPT
+• Purpose was for brainstorming and structuring only
+• Used on 11 May 2024
+• https://chat.openai.com/
