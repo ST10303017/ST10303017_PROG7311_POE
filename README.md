@@ -95,15 +95,14 @@ The application includes pre-seeded user accounts for demonstration and testing:
 ## Project Structure Overview
 *   **`/Controllers`**: Contains the MVC controllers responsible for handling application logic.
 *   **`/Data`**: Includes `ApplicationDbContext.cs` for Entity Framework Core and `SeedData.cs` for initial database population.
-*   **`/Migrations`**: Stores Entity Framework Core database migration files specific to SQLite.
 *   **`/Models`**: Defines C# entity classes (e.g., `ApplicationUser.cs`, `Product.cs`) and ViewModels.
-*   **`/Views`**: Contains Razor (.cshtml) files for rendering the user interface.
+*   **`/Views`**: Contains Razor (.cshtml) files for the user interface.
     *   **`/Views/Shared`**: Houses shared layout components like `_Layout.cshtml`.
 *   **`/Areas/Identity/Pages`**: Contains the scaffolded Razor Pages for ASP.NET Core Identity functionalities.
-*   **`/wwwroot`**: Stores static client-side assets (CSS, JavaScript, images).
-*   **`/LocalDatabase`**: Contains the `AgriEnergyConnect.db` SQLite database file, configured to be copied to the output directory.
+*   **`/wwwroot`**: Stores assets (CSS, images).
+*   **`/LocalDatabase`**: Contains the `AgriEnergyConnect.db` SQLite database file
 *   **`appsettings.json`**: Central configuration file, including the database connection string.
-*   **`Program.cs`**: The main application entry point, configuring services and the HTTP request pipeline.
+*   **`Program.cs`**
 
 **References:**
 - Troelsen, A., & Japikse, P. (2022). Pro C# 10 with .NET 6: Foundational Principles and Practices in Programming. New York: Apress Media LLC.
