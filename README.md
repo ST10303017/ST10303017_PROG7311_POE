@@ -1,11 +1,14 @@
 # AgriEnergyConnect - Prototype (Portfolio of Evidence Part 2)
 
 ## Project Overview
-This ASP.NET Core 8 MVC application serves as a functional prototype for the AgriEnergyConnect platform, developed in fulfillment of the requirements for Part 2 of the Programming 7311 Portfolio of Evidence. The prototype demonstrates a user management system employing distinct roles (Farmer and Employee) and showcases core functionalities pertaining to product management by farmers, alongside farmer and product administration by employees. The system utilizes ASP.NET Core Identity for robust authentication and authorization.
+This MVC application serves as a functional prototype for the Agri-Energy Connect platform, developed in fulfillment of the requirements for Part 2 of the Programming 7311 Portfolio of Evidence. The prototype demonstrates a user management system employing distinct roles (Farmer and Employee) and showcases core functionalities pertaining to product management by farmers, alongside farmer and product administration by employees. The system utilizes ASP.NET Core Identity for robust authentication and authorization.
 
 **Project Namespace:** `ST10303017_PROG7311_POE`
 
-## Implemented Key Features (Aligned with Part 2 Brief)
+**GitHub Repository Link:**
+
+
+## Implemented Key Features
 
 *   **User Role Management & Secure Authentication:**
     *   Implementation of distinct "Farmer" and "Employee" user roles, managed via ASP.NET Core Identity.
@@ -32,26 +35,25 @@ This ASP.NET Core 8 MVC application serves as a functional prototype for the Agr
 
 ## Core Technologies Utilized
 *   ASP.NET Core MVC (.NET 8.0), C#
-*   Entity Framework Core 8 (Code-First)
+*   Entity Framework Core 8
 *   ASP.NET Core Identity
 *   SQLite
 *   Bootstrap 5, HTML, CSS
 
 ## System Prerequisites
-*   .NET SDK 8.0 or a later compatible version.
+*   .NET SDK 8.0
 *   Visual Studio 2022 (with the "ASP.NET and web development" workload installed).
 
 ## Setup and Execution Instructions
 
 1.  **Open the Solution:** Launch Visual Studio 2022 and open the `ST10303017_PROG7311_POE.sln` file located in the project's root directory.
-2.  **Verify Connection String (if necessary):**
+2.  **Verify Connection String:**
     *   The application is pre-configured to use an included SQLite database file. The connection string in `appsettings.json` is:
         ```json
         "ConnectionStrings": {
           "DefaultConnection": "Data Source=LocalDatabase\\AgriEnergyConnect.db"
         }
         ```
-    *   No changes to the connection string should be required if the project structure is maintained.
 3.  **Apply Database Migrations:**
     *   Open the **Package Manager Console** within Visual Studio (View > Other Windows > Package Manager Console).
     *   Ensure that `ST10303017_PROG7311_POE` is selected as the "Default project" in the Package Manager Console dropdown.
@@ -59,10 +61,10 @@ This ASP.NET Core 8 MVC application serves as a functional prototype for the Agr
         ```powershell
         Update-Database
         ```
-    *   This command will create the `AgriEnergyConnect.db` file in the appropriate output sub-directory (e.g., `bin\Debug\net8.0\LocalDatabase\`) if it doesn't exist, and apply the schema.
+    *   This command will create the `AgriEnergyConnect.db` file in the appropriate output directory
 4.  **Run the Application:**
-    *   Press **F5** or select **Debug > Start Debugging** from the Visual Studio menu to build and run the application.
-    *   The application will launch in your default web browser. The initial data seeding process (roles, users, products) will occur automatically on the first successful startup after the database schema is in place.
+    *   Press **Debug > Start Debugging** from the Visual Studio menu to build and run the application.
+    *   The application will launch in your default web browser. The data seeding process (roles, users, products) will occur automatically.
 
 ## Initial User Accounts & Application Usage
 
@@ -109,4 +111,4 @@ The application includes pre-seeded user accounts for demonstration and testing:
 *   **`appsettings.json`**: Central configuration file, including the database connection string.
 *   **`Program.cs`**: The main application entry point, configuring services and the HTTP request pipeline.
 
-**GitHub Repository Link:**
+**References:**
