@@ -50,24 +50,26 @@
 else if (!Model.Any())
 {
     <div class="modern-card text-center py-5">
-        <i class="bi bi-emoji-frown display-1 text-secondary-accent mb-3"></i>
+        <i class="bi bi-emoji-frown display-1 text-secondary-accent mb-3"></i> 
         <h3 class="text-muted">No Products Found</h3>
         <p class="text-muted">No products match the selected farmer and filter criteria.</p>
     </div>
 }
 else
 {
-    <div class="product-list mt-4">
-        @foreach (var item in Model)
-        {
-            <div class="list-item-card">
-                <div class="item-details">
-                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
-                    <span><i class="bi bi-person-fill me-1 text-muted"></i> Farmer: @Html.DisplayFor(modelItem => item.Farmer.Email)</span>
-                    <span class="ms-md-3"><i class="bi bi-tag-fill me-1 text-muted"></i> Category: @Html.DisplayFor(modelItem => item.Category)</span>
-                    <span class="ms-md-3"><i class="bi bi-calendar-event-fill me-1 text-muted"></i> Production: @item.ProductionDate.ToString("dd/MM/yyyy")</span>
+    <div class="scrollable-list-container mt-4">
+        <div class="product-list">
+            @foreach (var item in Model)
+            {
+                <div class="list-item-card">
+                    <div class="item-details">
+                        <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                        <span><i class="bi bi-person-fill me-1 text-muted"></i> Farmer: @Html.DisplayFor(modelItem => item.Farmer.Email)</span>
+                        <span class="ms-md-3"><i class="bi bi-tag-fill me-1 text-muted"></i> Category: @Html.DisplayFor(modelItem => item.Category)</span>
+                        <span class="ms-md-3"><i class="bi bi-calendar-event-fill me-1 text-muted"></i> Production: @item.ProductionDate.ToString("dd/MM/yyyy")</span>
+                    </div>
                 </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
+    </div> 
 }

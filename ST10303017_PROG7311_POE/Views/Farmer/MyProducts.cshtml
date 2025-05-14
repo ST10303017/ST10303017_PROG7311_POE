@@ -22,18 +22,20 @@
 }
 else
 {
-    <div class="product-list">
-        @foreach (var item in Model)
-        {
-            <div class="list-item-card">
-                <div class="item-details">
-                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
-                    <span><i class="bi bi-tag-fill me-1 text-muted"></i> Category: @Html.DisplayFor(modelItem => item.Category)</span>
-                    <span class="ms-md-3"><i class="bi bi-calendar-event-fill me-1 text-muted"></i> Production: @item.ProductionDate.ToString("dd/MM/yyyy")</span>
+    <div class="scrollable-list-container">
+        <div class="product-list">
+            @foreach (var item in Model)
+            {
+                <div class="list-item-card">
+                    <div class="item-details">
+                        <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                        <span><i class="bi bi-tag-fill me-1 text-muted"></i> Category: @Html.DisplayFor(modelItem => item.Category)</span>
+                        <span class="ms-md-3"><i class="bi bi-calendar-event-fill me-1 text-muted"></i> Production: @item.ProductionDate.ToString("dd/MM/yyyy")</span>
+                    </div>
+                    <div class="item-actions">
+                    </div>
                 </div>
-                <div class="item-actions">
-                </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 }
