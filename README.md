@@ -1,7 +1,7 @@
 # Agri-Energy Connect - Part 2 Prototype
 
 ## Project Overview
-This ASP.NET Core 8 MVC application is a prototype for the Agri-Energy Connect platform, fulfilling Part 2 of the Programming 7311 Portfolio of Evidence. It features a user management system with distinct "Farmer" and "Employee" roles, product management for farmers, and administrative functions for employees, all secured with ASP.NET Core Identity.
+This ASP.NET Core 8 MVC application is a prototype for the Agri-Energy Connect platform, fulfilling Part 2 of the POE. It features a user management system with distinct "Farmer" and "Employee" roles, product management for farmers, and administrative functions for employees, all secured with ASP.NET Core Identity.
 
 **Project Namespace:** `ST10303017_PROG7311_POE`
 **GitHub Repository Link:** `https://github.com/ST10303017/ST10303017_PROG7311_POE.git`
