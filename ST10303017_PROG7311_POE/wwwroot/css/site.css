@@ -42,7 +42,7 @@ body {
 
     /* --- Homepage Specific Background --- */
     body.homepage-background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/homepagebg.jpg'); /* Replace with your image name if different */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/homepagebg.jpg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
