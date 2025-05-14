@@ -81,22 +81,16 @@ The application includes pre-seeded user accounts for demonstration and testing:
 *   Five Farmer accounts are pre-seeded with login credentials. Each farmer also has 5 sample products.
     1.  **Email/Username:** `farmer.john.doe@example.com`
         **Password:** `FarmerPass1!`
-        *(Associated with Green Acres Farm products)*
     2.  **Email/Username:** `farmer.jane.smith@example.com`
         **Password:** `FarmerPass2!`
-        *(Associated with Sunshine Produce products)*
     3.  **Email/Username:** `farmer.peter.fields@example.com`
         **Password:** `FarmerPass3!`
-        *(Associated with Willow Creek Organics products)*
     4.  **Email/Username:** `farmer.susan.grower@example.com`
         **Password:** `FarmerPass4!`
-        *(Associated with Harvest Moon Fields products)*
     5.  **Email/Username:** `farmer.mike.valley@example.com`
         **Password:** `FarmerPass5!`
-        *(Associated with Valley Fresh Goods products)*
 *   **Primary Tasks:** Log in to add new products to their profile or view their existing product list.
 
-**Note:** Farmer accounts are primarily intended to be created by an Employee user within the application. The pre-seeding is for demonstration breadth.
 
 ## Project Structure Overview
 *   **`/Controllers`**: Contains the MVC controllers responsible for handling application logic.
