@@ -1,5 +1,4 @@
-﻿@* File: Views/Farmer/AddProduct.cshtml *@
-@model ST10303017_PROG7311_POE.Models.ViewModels.AddProductViewModel 
+﻿@model ST10303017_PROG7311_POE.Models.ViewModels.AddProductViewModel 
 
 @{
     ViewData["Title"] = "Add New Product";
@@ -13,7 +12,7 @@
                 <p class="modern-card-subtitle">Enter the details for your new agricultural product.</p>
             </div>
 
-            <form asp-action="AddProduct" method="post"> @* method="post" is important *@
+            <form asp-action="AddProduct" method="post">
                 <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3" role="alert"></div>
                 
                 <div class="mb-3">
@@ -30,7 +29,7 @@
                 
                 <div class="mb-4">
                     <label asp-for="ProductionDate" class="form-label"></label>
-                    <input asp-for="ProductionDate" type="date" class="form-control" /> @* type="date" is good *@
+                    <input asp-for="ProductionDate" type="date" class="form-control" /> 
                     <span asp-validation-for="ProductionDate" class="text-danger d-block mt-1 small"></span>
                 </div>
 
@@ -44,5 +43,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} @* Ensures client-side validation scripts are loaded *@
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} 
 }

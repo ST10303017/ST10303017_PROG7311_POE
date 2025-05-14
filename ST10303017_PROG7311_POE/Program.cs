@@ -1,20 +1,24 @@
-// File: Program.cs
+/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore; // Keep this
+using Microsoft.EntityFrameworkCore; 
 using ST10303017_PROG7311_POE.Data;
 using ST10303017_PROG7311_POE.Models;
-using Microsoft.Extensions.Logging; // For ILogger in SeedData call if needed
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Configure Connection String and DbContext
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found in appsettings.json.");
 
-// --- MODIFIED HERE ---
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString)); // Changed from UseSqlServer to UseSqlite
-// --- END OF MODIFICATION ---
+    options.UseSqlite(connectionString)); 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -49,10 +53,6 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
-        // Ensure database is created (SQLite specific - creates the file if it doesn't exist)
-        // For SQLite, this can be helpful, though Update-Database will also do it.
-        // var dbContext = services.GetRequiredService<ApplicationDbContext>();
-        // await dbContext.Database.EnsureCreatedAsync(); // Or dbContext.Database.Migrate(); after migrations
 
         await SeedData.Initialize(services);
     }

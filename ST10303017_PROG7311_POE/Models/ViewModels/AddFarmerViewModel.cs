@@ -1,7 +1,14 @@
-﻿// File: Models/ViewModels/AddFarmerViewModel.cs
+﻿/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
 using System.ComponentModel.DataAnnotations;
 
-namespace ST10303017_PROG7311_POE.Models.ViewModels // Or ST10303017_PROG7311_POE.ViewModels
+namespace ST10303017_PROG7311_POE.Models.ViewModels
 {
     public class AddFarmerViewModel
     {

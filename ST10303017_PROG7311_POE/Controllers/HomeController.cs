@@ -1,7 +1,14 @@
-// File: Controllers/HomeController.cs
-using Microsoft.AspNetCore.Authorization; // Required if you globally authorize and want to allow anonymous here
+/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
+using Microsoft.AspNetCore.Authorization; 
 using Microsoft.AspNetCore.Mvc;
-using ST10303017_PROG7311_POE.Models; // For ErrorViewModel if used
+using ST10303017_PROG7311_POE.Models; 
 using System.Diagnostics;
 
 namespace ST10303017_PROG7311_POE.Controllers
@@ -15,7 +22,7 @@ namespace ST10303017_PROG7311_POE.Controllers
             _logger = logger;
         }
 
-        [AllowAnonymous] // Allow access to home page even if global authorization is set
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();

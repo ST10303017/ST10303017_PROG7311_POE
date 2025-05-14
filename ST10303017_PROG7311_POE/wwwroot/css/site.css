@@ -1,37 +1,41 @@
-/* wwwroot/css/site.css */
+/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
 
-/* --- Google Font Import --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* --- CSS Variables (Theme Colors & Properties) --- */
 :root {
-    --primary-accent-color: #6fe3cc; /* Teal/Mint */
-    --primary-accent-hover: #5ac0b3; /* Darker Teal/Mint */
-    --secondary-accent-color: #cf6581; /* Rose/Pink */
-    --secondary-accent-hover: #b8526f; /* Darker Rose/Pink */
-    --primary-text-on-accent: #ffffff; /* White text for primary accent buttons */
-    --secondary-text-on-accent: #ffffff; /* White text for secondary accent buttons */
+    --primary-accent-color: #6fe3cc; 
+    --primary-accent-hover: #5ac0b3; 
+    --secondary-accent-color: #cf6581; 
+    --secondary-accent-hover: #b8526f;
+    --primary-text-on-accent: #ffffff; 
+    --secondary-text-on-accent: #ffffff; 
 
-    --text-color: #212529; /* Bootstrap's default dark text for better contrast */
+    --text-color: #212529; 
     --muted-text-color: #6c757d;
-    --background-color: #f9fbfd; /* Very light, slightly blueish off-white */
+    --background-color: #f9fbfd; 
     --card-background-color: #ffffff;
-    --border-color: #e0e6ed; /* Softer border color */
+    --border-color: #e0e6ed;
     --border-radius: 0.5rem;
-    --input-height: 48px; /* Standard height for form inputs */
+    --input-height: 48px; 
 
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Softer, more diffused shadow */
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
     --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.09);
-    --box-shadow-focus: 0 0 0 0.25rem rgba(111, 227, 204, 0.25); /* For form focus, using primary accent */
+    --box-shadow-focus: 0 0 0 0.25rem rgba(111, 227, 204, 0.25);
 
     --font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --navbar-height: 70px;
-    --footer-height: 56px; /* Approximate */
+    --footer-height: 56px; 
 }
 
-/* --- Base & Typography --- */
 html {
-    font-size: 16px; /* Base font size */
+    font-size: 16px;
 }
 
 body {
@@ -39,8 +43,8 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.65;
-    padding-top: var(--navbar-height); /* For fixed navbar */
-    padding-bottom: var(--footer-height); /* For footer space, adjust if footer is not fixed */
+    padding-top: var(--navbar-height); 
+    padding-bottom: var(--footer-height); 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -88,14 +92,14 @@ a {
 
     a:hover {
         color: var(--primary-accent-hover);
-        text-decoration: none; /* Often looks cleaner without underline on hover */
+        text-decoration: none; 
     }
 
 /* --- Navbar --- */
 .navbar {
     background-color: var(--card-background-color) !important;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04); /* Softer navbar shadow */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04); 
     position: fixed;
     top: 0;
     width: 100%;
@@ -117,7 +121,7 @@ a {
 
 .navbar-nav .nav-link {
     font-weight: 500;
-    padding-top: 1.5rem; /* Adjust for vertical centering if needed */
+    padding-top: 1.5rem; 
     padding-bottom: 1.5rem;
     color: var(--text-color);
 }
@@ -138,13 +142,13 @@ a {
 /* --- Buttons --- */
 .btn {
     border-radius: var(--border-radius);
-    padding: 0.625rem 1.25rem; /* 10px 20px */
-    font-size: 0.9375rem; /* 15px */
+    padding: 0.625rem 1.25rem; 
+    font-size: 0.9375rem; 
     font-weight: 600;
     transition: all 0.2s ease-in-out;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-width: 1px; /* Thinner default border, primary buttons will be filled */
+    border-width: 1px; 
     line-height: 1.5;
 }
 
@@ -153,8 +157,8 @@ a {
     }
 
 .btn-lg {
-    padding: 0.875rem 1.75rem; /* 14px 28px */
-    font-size: 1rem; /* 16px */
+    padding: 0.875rem 1.75rem; 
+    font-size: 1rem;
 }
 
 .btn-primary-accent {
@@ -169,7 +173,7 @@ a {
         color: var(--primary-text-on-accent);
     }
 
-.btn-secondary-accent {
+.btn-secondary-accent { 
     background-color: var(--secondary-accent-color);
     border-color: var(--secondary-accent-color);
     color: var(--secondary-text-on-accent);
@@ -180,6 +184,17 @@ a {
         border-color: var(--secondary-accent-hover);
         color: var(--secondary-text-on-accent);
     }
+
+.btn-outline-secondary-accent {
+    color: var(--secondary-accent-color);
+    border-color: var(--secondary-accent-color);
+    border-width: 2px; 
+
+    .btn-outline-secondary-accent:hover, .btn-outline-secondary-accent:focus {
+        background-color: var(--secondary-accent-color);
+        color: var(--secondary-text-on-accent); 
+        border-color: var(--secondary-accent-color);
+        box-shadow: 0 0 0 0.2rem rgba(207, 101, 129, 0.3);
 
 .btn-outline-primary-accent {
     color: var(--primary-accent-color);
@@ -193,20 +208,20 @@ a {
         border-color: var(--primary-accent-color);
     }
 
-.btn-link-styled { /* For subtle actions */
+.btn-link-styled {
     color: var(--primary-accent-color);
     text-decoration: none;
     padding: 0.375rem 0.75rem;
     font-weight: 500;
     background-color: transparent;
     border: none;
-    text-transform: none; /* Usually not uppercase for link-style buttons */
+    text-transform: none; 
     letter-spacing: normal;
 }
 
     .btn-link-styled:hover {
         color: var(--primary-accent-hover);
-        background-color: rgba(111, 227, 204, 0.1); /* Light background on hover */
+        background-color: rgba(111, 227, 204, 0.1); 
         border-radius: var(--border-radius);
     }
 
@@ -216,14 +231,14 @@ a {
     height: var(--input-height);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
-    padding: 0.75rem 1rem; /* 12px 16px */
-    font-size: 1rem; /* 16px */
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     background-color: #fff;
 }
 
     .form-control::placeholder {
-        color: #adb5bd; /* Bootstrap's default placeholder color */
+        color: #adb5bd;
     }
 
     .form-control:focus, .form-select:focus {
@@ -233,15 +248,14 @@ a {
     }
 
 .form-label {
-    font-weight: 500; /* Slightly less bold than 600 for better balance */
+    font-weight: 500; 
     margin-bottom: 0.5rem;
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem; 
     color: var(--text-color);
 }
-/* For floating labels, ensure a min-height */
 .form-floating > .form-control,
 .form-floating > .form-select {
-    height: calc(var(--input-height) + 2px); /* Adjust for floating label structure */
+    height: calc(var(--input-height) + 2px); 
     padding: 1rem 0.75rem;
 }
 
@@ -250,13 +264,12 @@ a {
 }
 
 
-/* --- Cards & Lists (General purpose modern card) --- */
 .modern-card {
     background-color: var(--card-background-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    margin-bottom: 2rem; /* Increased margin */
+    margin-bottom: 2rem;
     padding: 2rem;
     transition: box-shadow 0.2s ease-in-out;
 }
@@ -266,22 +279,22 @@ a {
     }
 
 .modern-card-header {
-    margin: -2rem -2rem 1.5rem -2rem; /* Extend to edges */
+    margin: -2rem -2rem 1.5rem -2rem;
     padding: 1.25rem 2rem;
     border-bottom: 1px solid var(--border-color);
-    background-color: #fcfdff; /* Very subtle header background */
+    background-color: #fcfdff; 
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
 }
 
 .modern-card-title {
-    font-size: 1.375rem; /* 22px */
+    font-size: 1.375rem; 
     font-weight: 600;
-    margin-bottom: 0; /* Header handles spacing */
+    margin-bottom: 0;
 }
 
 .modern-card-subtitle {
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.9375rem; 
     color: var(--muted-text-color);
     margin-top: 0.25rem;
 }
@@ -289,11 +302,10 @@ a {
 .modern-card-actions {
     margin-top: 1.5rem;
     display: flex;
-    gap: 0.75rem; /* Space between action buttons */
-    justify-content: flex-end; /* Align actions to the right */
+    gap: 0.75rem; 
+    justify-content: flex-end; 
 }
 
-/* List Item Card Style (for MyProducts, ListFarmers) */
 .list-item-card {
     background-color: var(--card-background-color);
     border: 1px solid var(--border-color);
@@ -301,10 +313,10 @@ a {
     padding: 1.25rem 1.75rem;
     margin-bottom: 1rem;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
-    gap: 1rem; /* Gap between details and actions */
+    gap: 1rem; 
     transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 
@@ -319,37 +331,37 @@ a {
 
         .list-item-card .item-details strong {
             display: block;
-            font-size: 1.125rem; /* 18px */
+            font-size: 1.125rem; 
             font-weight: 600;
             margin-bottom: 0.25rem;
             color: var(--text-color);
         }
 
         .list-item-card .item-details span {
-            font-size: 0.875rem; /* 14px */
+            font-size: 0.875rem;
             color: var(--muted-text-color);
-            margin-right: 1rem; /* Space between detail spans */
+            margin-right: 1rem;
         }
 
     .list-item-card .item-actions {
-        flex-shrink: 0; /* Prevent actions from shrinking too much */
+        flex-shrink: 0;
         display: flex;
         gap: 0.5rem;
     }
 
         .list-item-card .item-actions .btn {
-            padding: 0.5rem 1rem; /* Smaller buttons for list items */
+            padding: 0.5rem 1rem;
             font-size: 0.875rem;
         }
 
 
-/* --- Homepage Specific Styles --- */
+/* --- Homepage  Styles --- */
 .homepage-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 4rem); /* Adjust for padding */
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height) - 4rem); 
     text-align: center;
     padding: 2rem;
 }
@@ -357,19 +369,19 @@ a {
 .hero-content-block {
     background-color: var(--card-background-color);
     padding: 3rem 2.5rem;
-    border-radius: 1rem; /* More rounded */
-    box-shadow: 0 12px 36px rgba(111, 227, 204, 0.15), 0 4px 12px rgba(0,0,0,0.05); /* Themed shadow */
+    border-radius: 1rem;
+    box-shadow: 0 12px 36px rgba(111, 227, 204, 0.15), 0 4px 12px rgba(0,0,0,0.05);
     max-width: 700px;
     width: 100%;
 }
 
     .hero-content-block .logo-image {
-        max-height: 70px; /* Slightly smaller */
+        max-height: 70px;
         margin-bottom: 2rem;
     }
 
     .hero-content-block h1 {
-        font-size: 2.75rem; /* 44px */
+        font-size: 2.75rem; 
         font-weight: 700;
         color: var(--primary-accent-color);
         margin-bottom: 1rem;
@@ -377,21 +389,21 @@ a {
     }
 
     .hero-content-block p.lead {
-        font-size: 1.125rem; /* 18px */
+        font-size: 1.125rem; 
         color: var(--muted-text-color);
         margin-bottom: 2.5rem;
-        max-width: 500px; /* Constrain lead text width */
+        max-width: 500px; 
         margin-left: auto;
         margin-right: auto;
     }
 
 .hero-actions .btn {
     margin: 0.5rem;
-    min-width: 220px; /* Wider buttons */
+    min-width: 220px; 
 }
 
 .hero-actions .btn-primary-accent {
-    box-shadow: 0 4px 15px rgba(111, 227, 204, 0.3); /* Add subtle shadow to primary button */
+    box-shadow: 0 4px 15px rgba(111, 227, 204, 0.3); 
 }
 
     .hero-actions .btn-primary-accent:hover {
@@ -404,7 +416,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1; /* Make it take available space */
+    flex-grow: 1; 
     padding: 2rem 1rem;
     width: 100%;
 }
@@ -415,7 +427,7 @@ a {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     width: 100%;
-    max-width: 420px; /* Slightly narrower */
+    max-width: 420px; 
 }
 
     .identity-card .identity-header {
@@ -429,13 +441,13 @@ a {
         }
 
         .identity-card .identity-header h1 {
-            font-size: 1.875rem; /* 30px */
+            font-size: 1.875rem; 
             font-weight: 700;
             color: var(--primary-accent-color);
             margin-bottom: 0.5rem;
         }
 
-    .identity-card .form-floating.mb-3 { /* More space for floating labels */
+    .identity-card .form-floating.mb-3 { 
         margin-bottom: 1.25rem !important;
     }
 
@@ -446,7 +458,7 @@ a {
     }
 
     .identity-card .checkbox input {
-        border-color: var(--border-color); /* Style checkbox border */
+        border-color: var(--border-color);
     }
 
     .identity-card .identity-links {
@@ -460,24 +472,24 @@ a {
         }
 
 
-/* --- Page Header (for views like MyProducts, ListFarmers) --- */
+/* --- Page Header --- */
 .page-header {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border-color);
-    gap: 1rem; /* Space between title and button if they wrap */
+    gap: 1rem; 
 }
 
     .page-header h1 {
         margin-bottom: 0;
-        font-size: 2rem; /* Slightly smaller for internal pages */
+        font-size: 2rem; 
     }
 
-/* --- Filter Bar (for ViewFarmerProducts) --- */
+/* --- Filter Bar  --- */
 .filter-bar {
     background-color: var(--card-background-color);
     padding: 1.5rem;
@@ -487,30 +499,29 @@ a {
 }
 
     .filter-bar .row {
-        align-items: flex-end; /* Align filter button with bottom of inputs */
+        align-items: flex-end; 
     }
 
     .filter-bar .form-label {
-        font-size: 0.875rem; /* Smaller labels for filters */
+        font-size: 0.875rem; 
         margin-bottom: 0.25rem;
     }
 
     .filter-bar .btn {
-        height: var(--input-height); /* Match input height */
+        height: var(--input-height);
         width: 100%;
     }
 
-/* --- Alerts --- */
 .alert {
     border-radius: var(--border-radius);
     padding: 1rem 1.25rem;
-    border-width: 0px; /* Remove border, use background for emphasis */
+    border-width: 0px;
     box-shadow: var(--box-shadow);
 }
 
 .alert-success {
-    background-color: #d1e7dd; /* Bootstrap success bg */
-    color: #0f5132; /* Bootstrap success text */
+    background-color: #d1e7dd; 
+    color: #0f5132; 
 }
 
 .alert-danger {
@@ -536,11 +547,10 @@ a {
     background-color: var(--background-color);
     border-top: 1px solid var(--border-color);
     text-align: center;
-    height: var(--footer-height); /* Give it a defined height if body uses padding-bottom for it */
-    margin-top: auto; /* Push footer to bottom if content is short */
+    height: var(--footer-height); 
+    margin-top: auto;
 }
 
-/* --- Utility & Helper Classes --- */
 .text-primary-accent {
     color: var(--primary-accent-color) !important;
 }

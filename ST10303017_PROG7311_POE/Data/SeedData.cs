@@ -1,10 +1,16 @@
-﻿// File: Data/SeedData.cs
+﻿/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using ST10303017_PROG7311_POE.Models; // Your ApplicationUser and Product models
+using ST10303017_PROG7311_POE.Models; 
 using System;
-using System.Collections.Generic; // For List
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,7 +22,7 @@ namespace ST10303017_PROG7311_POE.Data
         {
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-            var context = serviceProvider.GetRequiredService<ApplicationDbContext>(); // We need context to add products
+            var context = serviceProvider.GetRequiredService<ApplicationDbContext>(); 
 
             var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
             var logger = loggerFactory.CreateLogger("ST10303017_PROG7311_POE.Data.SeedData");
@@ -75,7 +81,7 @@ namespace ST10303017_PROG7311_POE.Data
                 else
                 {
                     logger.LogInformation($"Employee '{emp.Email}' already exists.");
-                    if (!await userManager.IsInRoleAsync(employeeUser, "Employee")) // Ensure role if user exists
+                    if (!await userManager.IsInRoleAsync(employeeUser, "Employee")) 
                     {
                         await userManager.AddToRoleAsync(employeeUser, "Employee");
                         logger.LogInformation($"Assigned 'Employee' role to existing user '{employeeUser.Email}'.");
@@ -85,7 +91,7 @@ namespace ST10303017_PROG7311_POE.Data
 
             // --- 3. Seed Farmers (5 total) ---
             logger.LogInformation("Seeding Farmers...");
-            var farmersToSeed = new List<(string Email, string Password, string FarmerName)> // Added FarmerName for potential display
+            var farmersToSeed = new List<(string Email, string Password, string FarmerName)>
             {
                 ("farmer.john@example.com", "FarmerPass1!", "John's Farm"),
                 ("farmer.jane@example.com", "FarmerPass2!", "Jane's Produce"),
@@ -94,7 +100,8 @@ namespace ST10303017_PROG7311_POE.Data
                 ("farmer.mike@example.com", "FarmerPass5!", "Mike's Meadows")
             };
 
-            var seededFarmerIds = new List<string>(); // To store IDs of newly created farmers for product seeding
+            var seededFarmerIds = new List<string>(); 
+            // To store IDs of newly created farmers for product seeding
 
             foreach (var farm in farmersToSeed)
             {
@@ -106,14 +113,14 @@ namespace ST10303017_PROG7311_POE.Data
                         UserName = farm.Email,
                         Email = farm.Email,
                         EmailConfirmed = true
-                        // You could add a FullName property to ApplicationUser if you want to store farm.FarmerName
                     };
                     var createResult = await userManager.CreateAsync(farmerUser, farm.Password);
                     if (createResult.Succeeded)
                     {
                         await userManager.AddToRoleAsync(farmerUser, "Farmer");
                         logger.LogInformation($"Farmer '{farm.Email}' ({farm.FarmerName}) created and assigned 'Farmer' role.");
-                        seededFarmerIds.Add(farmerUser.Id); // Add ID for product seeding
+                        seededFarmerIds.Add(farmerUser.Id); 
+                        // Add ID for product seeding
                     }
                     else
                     {
@@ -138,7 +145,7 @@ namespace ST10303017_PROG7311_POE.Data
             var random = new Random();
 
             // Ensure we only seed products for farmers we actually have IDs for
-            foreach (var farmerId in seededFarmerIds.Distinct()) // Use Distinct in case an existing farmer was re-added to the list
+            foreach (var farmerId in seededFarmerIds.Distinct())
             {
                 // Check if this farmer already has products (to avoid re-seeding if run multiple times)
                 // This check assumes FarmerID is the foreign key in your Product model
@@ -150,15 +157,15 @@ namespace ST10303017_PROG7311_POE.Data
                     for (int i = 1; i <= 5; i++)
                     {
                         var category = productCategories[random.Next(productCategories.Count)];
-                        var productName = $"{category.Substring(0, Math.Min(category.Length, 4))} Product #{i} {farmerInfo?.UserName?.Split('@')[0] ?? "F"}"; // Example product name
-                        var productionDate = DateTime.Today.AddDays(-random.Next(0, 180)); // Products from last 6 months
+                        var productName = $"{category.Substring(0, Math.Min(category.Length, 4))} Product #{i} {farmerInfo?.UserName?.Split('@')[0] ?? "F"}";
+                        var productionDate = DateTime.Today.AddDays(-random.Next(0, 180)); 
 
                         context.Products.Add(new Product
                         {
                             Name = productName,
                             Category = category,
                             ProductionDate = productionDate,
-                            FarmerID = farmerId // This is crucial
+                            FarmerID = farmerId 
                         });
                         logger.LogInformation($"Added product '{productName}' for farmer {farmerInfo?.Email ?? farmerId}.");
                     }

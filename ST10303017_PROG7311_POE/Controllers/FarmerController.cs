@@ -1,6 +1,12 @@
-﻿// File: Controllers/FarmerController.cs
+﻿/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
 using Microsoft.AspNetCore.Authorization;
-// using Microsoft.AspNetCore.Identity; // Not directly used in these actions anymore for ApplicationUser construction
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

@@ -1,4 +1,11 @@
-﻿// File: Models/Product.cs
+﻿/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,8 +14,8 @@ namespace ST10303017_PROG7311_POE.Models
 {
     public class Product
     {
-        [Key] // Explicitly define Primary Key
-        public int ProductID { get; set; } // Primary Key (int)
+        [Key] 
+        public int ProductID { get; set; } // Primary Key
 
         [Required(ErrorMessage = "Product name is required.")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 100 characters.")]
@@ -25,9 +32,9 @@ namespace ST10303017_PROG7311_POE.Models
 
         // Foreign Key to ApplicationUser (Farmer)
         [Required]
-        public string FarmerID { get; set; } // Foreign Key (string, to match ApplicationUser.Id)
+        public string FarmerID { get; set; }
 
-        [ForeignKey("FarmerID")] // Specifies that FarmerID is the FK for the 'Farmer' navigation property
-        public virtual ApplicationUser Farmer { get; set; } // Navigation property
+        [ForeignKey("FarmerID")] 
+        public virtual ApplicationUser Farmer { get; set; } 
     }
 }

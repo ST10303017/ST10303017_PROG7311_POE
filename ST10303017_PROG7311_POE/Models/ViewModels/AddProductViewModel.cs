@@ -1,8 +1,14 @@
-﻿// File: Models/ViewModels/AddProductViewModel.cs
+﻿/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
 using System;
 using System.ComponentModel.DataAnnotations;
 
-// Ensure this namespace matches your project structure
 namespace ST10303017_PROG7311_POE.Models.ViewModels
 {
     public class AddProductViewModel

@@ -1,4 +1,11 @@
-﻿// File: Controllers/EmployeeController.cs
+﻿/*
+Calwyn Govender
+ST10303017
+PROG7311
+(OpenAI, 2025)
+(Troelsen & Japikse, 2022)
+*/
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,14 +13,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ST10303017_PROG7311_POE.Data;
 using ST10303017_PROG7311_POE.Models;
-using ST10303017_PROG7311_POE.Models.ViewModels; // For AddFarmerViewModel
+using ST10303017_PROG7311_POE.Models.ViewModels; 
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ST10303017_PROG7311_POE.Controllers
 {
-    [Authorize(Roles = "Employee")] // This controller is only accessible to users in the "Employee" role
+    [Authorize(Roles = "Employee")] 
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -25,13 +32,11 @@ namespace ST10303017_PROG7311_POE.Controllers
             _userManager = userManager;
         }
 
-        // GET: Employee/AddFarmer
         public IActionResult AddFarmer()
         {
             return View(new AddFarmerViewModel());
         }
 
-        // POST: Employee/AddFarmer
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddFarmer(AddFarmerViewModel model)
@@ -45,18 +50,16 @@ namespace ST10303017_PROG7311_POE.Controllers
                     // Assign the "Farmer" role to the newly created user
                     await _userManager.AddToRoleAsync(user, "Farmer");
                     TempData["SuccessMessage"] = $"Farmer account for {model.Email} created successfully.";
-                    return RedirectToAction(nameof(ListFarmers)); // Or to a success page
+                    return RedirectToAction(nameof(ListFarmers)); 
                 }
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
-        // GET: Employee/ListFarmers
         public async Task<IActionResult> ListFarmers()
         {
             var farmers = await _userManager.GetUsersInRoleAsync("Farmer");
@@ -64,7 +67,6 @@ namespace ST10303017_PROG7311_POE.Controllers
         }
 
 
-        // GET: Employee/ViewFarmerProducts
         public async Task<IActionResult> ViewFarmerProducts(string farmerId, DateTime? startDate, DateTime? endDate, string productType)
         {
             // Populate dropdown for selecting a farmer
@@ -79,7 +81,7 @@ namespace ST10303017_PROG7311_POE.Controllers
                                            .ToListAsync();
             ViewBag.ProductTypes = new SelectList(categories, productType);
 
-            IQueryable<Product> productsQuery = _context.Products.Include(p => p.Farmer); // Eager load Farmer info
+            IQueryable<Product> productsQuery = _context.Products.Include(p => p.Farmer); 
 
             if (!string.IsNullOrEmpty(farmerId))
             {
@@ -110,8 +112,8 @@ namespace ST10303017_PROG7311_POE.Controllers
 
             // Retain filter values for the view
             ViewBag.SelectedFarmerId = farmerId;
-            ViewBag.StartDate = startDate?.ToString("yyyy-MM-dd"); // Format for date input
-            ViewBag.EndDate = endDate?.ToString("yyyy-MM-dd");   // Format for date input
+            ViewBag.StartDate = startDate?.ToString("yyyy-MM-dd"); 
+            ViewBag.EndDate = endDate?.ToString("yyyy-MM-dd");   
             ViewBag.SelectedProductType = productType;
 
             return View(products);
