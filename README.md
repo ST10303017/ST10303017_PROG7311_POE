@@ -21,7 +21,7 @@ This MVC application serves as a functional prototype for the Agri-Energy Connec
 *   **Farmer-Specific Functionalities:**
     *   Farmer accounts are created by authorized Employees. Once logged in, Farmers can:
         *   Add new products (specifying name, category, and production date) to their individual profiles.
-        *   View a consolidated list of their own product offerings. Production dates are consistently displayed in `dd/MM/yyyy` format.
+        *   View a consolidated list of their own product offerings.
 *   **Database and Data Seeding:**
     *   The application utilizes **SQLite** as its database, managed through Entity Framework Core (employing a Code-First approach).
     *   The SQLite database file (`AgriEnergyConnect.db`) is included within the `LocalDatabase` directory of the project source and is configured to be copied to the build output directory.
@@ -106,3 +106,5 @@ The application includes pre-seeded user accounts for demonstration and testing:
 *   **`Program.cs`**: The main application entry point, configuring services and the HTTP request pipeline.
 
 **References:**
+- Troelsen, A., & Japikse, P. (2022). Pro C# 10 with .NET 6: Foundational Principles and Practices in Programming. New York: Apress Media LLC.
+- 
